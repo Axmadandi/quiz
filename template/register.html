@@ -1,0 +1,41 @@
+{% extends 'home.html' %}
+
+{% block style %}
+<style>
+    .card{
+        background: rgb(255, 255, 255,0.5);
+    }
+    .container{
+        position:absolute;
+        top: 120px;
+        left: 50px;
+    }
+</style><br><br><br>
+    <div class="container">
+        <div class="card mt-5 p-5">
+            <form action="" method="POST">{% csrf_token %}
+                <div class="row">
+                    <h2 class="text-center mb-5 text-info">Ro'yxatdan o'ting</h2>
+                    <div class="col-md-6">
+                        <label for="">Ismingiz</label>
+                        <input class="form-control mb-4" type="text" name="name">
+                        <label for="">Vaqt</label>
+                        <input class="form-control mb-4" type="text" name="tel_num">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Familiyangiz</label>
+                        <input class="form-control mb-4" type="text" name="surname">
+                        <label for="">Vaqtni tanlang</label>
+                        <select name="time" class="form-select">
+                            <option selected>Kun qismini tanlang</option>
+                            <option value="ERTALABKI">ERTALABKI</option>
+                            <option value="KECHKI">KECHKI</option>
+                        </select>
+                    </div>
+                    <center><button type="submit" class="btn btn-info mt-3" style="border-radius: 30px; width: 300px; "><h5> Tasdiqlash</h5></button></center>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock style %}
+    

@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+
+{% block style %}
+<style>
+    .container{
+        background: rgb(255, 255, 255,0.5);
+        border-radius: 10px 10px 0 0 ;
+        width: 60%;
+    }
+</style>
+    <div class="container mt-5">
+        <h2 class="text-white">Savollar({{quiz.count}})</h2>
+        <hr>
+        <form action="" method="post">
+            {% csrf_token %}
+        {% for quiz in quiz %}
+            <b>{{forloop.counter}}.</b> </h1 class="text-info">{{quiz.title}}</h1><br><br>
+            
+            {% for ans in quiz.answers.all %}
+            <input type="radio" value="{{ans.id}}" name="quiz_id_{{ quiz.id }}"><span> 
+                
+                {% if ans.image %}
+                    <img src="{{ans.image.url}}" style="height: 150px;" alt="">
+                    {% else %}
+                    {{ans.title}}
+                {% endif %}
+                    
+            </span><br><br>
+            {% endfor %}
+                
+        {% endfor %}
+        <br>
+        <button type="submit" class="btn btn-info mb-3"> Tasdiqlash</button>
+        
+        
+    </form>
+            
+    </div>
+{% endblock style %}
+    
